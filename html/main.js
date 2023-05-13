@@ -62,7 +62,8 @@ const todos = [
 
 // forEach act as a for loop but it takes a function as its parameter, in which we need to pass variable
 // todos.forEach(function (todo){
-//     console.log(todo.id)
+//     console.log("\n ID: ",todo.id)
+//     return todo.id
 // })
 
 // map: it generates a new array from an existing array
@@ -80,12 +81,12 @@ const todos = [
 // console.log(todoCompleted)
 
 // filter the texts only whose values are true
-// const todoCompleted = todos.filter(function (todo) {
-//     return todo.isCompleted === true;
-// }).map(function (todo) {
-//     return todo.text
-// })
-// console.log(todoCompleted)
+const todoCompleted = todos.filter(function (todo) {
+    return todo.isCompleted === true;
+}).map(function (todo) {
+    return [todo.text, todo.id, todo.isCompleted]
+})
+console.log(todoCompleted)
 
 
 // turnery operations
