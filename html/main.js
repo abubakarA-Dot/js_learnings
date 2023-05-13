@@ -81,12 +81,12 @@ const todos = [
 // console.log(todoCompleted)
 
 // filter the texts only whose values are true
-const todoCompleted = todos.filter(function (todo) {
-    return todo.isCompleted === true;
-}).map(function (todo) {
-    return [todo.text, todo.id, todo.isCompleted]
-})
-console.log(todoCompleted)
+// const todoCompleted = todos.filter(function (todo) {
+//     return todo.isCompleted === true;
+// }).map(function (todo) {
+//     return [todo.text, todo.id, todo.isCompleted]
+// })
+// console.log(todoCompleted)
 
 
 // turnery operations
@@ -254,7 +254,7 @@ const myForm = document.querySelector('#my-form')
 const name = document.querySelector('#name')
 const email = document.querySelector('#email')
 const msg = document.querySelector('.msg')
-const users = document.querySelector('#users')
+const userList = document.querySelector('#users')
 
 myForm.addEventListener('submit', onSubmit);
 
@@ -265,6 +265,13 @@ function onSubmit(e) {
         msg.innerHTML = 'Please fill the fields first';
     } else {
         console.log("Success!")
+        const users = document.createElement('li');
+        users.appendChild(document.createTextNode(`${name.value} : ${email.value}`));
+        userList.appendChild(users)
+
+        // after submitting the successful form, clear the form fields
+        name.value = '';
+        email.value = '';
     }
     
 }
