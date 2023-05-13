@@ -65,7 +65,7 @@ const todos = [
 //     console.log(todo.id)
 // })
 
-// map: it generates a new arry from an existing array
+// map: it generates a new array from an existing array
 // it works the same way as forEach does but it returns an array
 // const todoText = todos.map(function (todo) {
 //     return todo.text;
@@ -227,15 +227,44 @@ const todos = [
 //     return item
 // })
 
-const ul = document.querySelector('.items');
-ul.firstElementChild.textContent = 'Person 1';
-console.log(ul)
+// const ul = document.querySelector('.items');
+// ul.firstElementChild.textContent = 'Person 1';
+// console.log(ul)
 
-ul.children[1].innerText = 'Person 2';
-console.log(ul)
+// ul.children[1].innerText = 'Person 2';
+// console.log(ul)
 
-ul.lastElementChild.innerHTML = '<h1> Person 3 </h1>';
-console.log(ul)
+// ul.lastElementChild.innerHTML = '<h1> Person 3 </h1>';
+// console.log(ul)
 
 const btn = document.querySelector('.btn');
-btn.style.background = 'green';
+// btn.style.background = 'green';
+// btn.style.color = 'white';
+// for hover, use event listner "mouseover"
+// btn.addEventListener('click', (e) => {
+//     e.preventDefault();
+//     console.log("Submit button clicked");
+//     document.querySelector('#my-form').style.background = 'purple';
+//     btn.style.background = 'green';
+// })
+
+// add a new user
+const myForm = document.querySelector('#my-form')
+const name = document.querySelector('#name')
+const email = document.querySelector('#email')
+const msg = document.querySelector('.msg')
+const users = document.querySelector('#users')
+
+myForm.addEventListener('submit', onSubmit);
+
+function onSubmit(e) {
+    e.preventDefault();
+    if (name.value === '' || email.value === '') {
+        msg.classList.add('error')
+        msg.innerHTML = 'Please fill the fields first';
+    } else {
+        console.log("Success!")
+    }
+    
+}
+
