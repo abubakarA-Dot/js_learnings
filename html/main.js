@@ -267,11 +267,20 @@ function onSubmit(e) {
         setTimeout(function(){
             msg.remove()
         } , 2000);
+        if (email.value === ''){
+            emailmsg.classList.add('error')
+            emailmsg.innerHTML = 'Please fill the Email field first';
+            setTimeout(function(){
+                emailmsg.remove()
+            } , 2000);
+        }
+        
+        
     } else if (email.value === ''){
         emailmsg.classList.add('error')
         emailmsg.innerHTML = 'Please fill the Email field first';
         setTimeout(function(){
-            msg.remove()
+            emailmsg.remove()
         } , 2000);
     }
     else {
