@@ -254,16 +254,27 @@ const myForm = document.querySelector('#my-form')
 const name = document.querySelector('#name')
 const email = document.querySelector('#email')
 const msg = document.querySelector('.msg')
+const emailmsg = document.querySelector('.emailmsg')
 const userList = document.querySelector('#users')
 
 myForm.addEventListener('submit', onSubmit);
 
 function onSubmit(e) {
     e.preventDefault();
-    if (name.value === '' || email.value === '') {
+    if (name.value === '') {
         msg.classList.add('error')
-        msg.innerHTML = 'Please fill the fields first';
-    } else {
+        msg.innerHTML = 'Please fill the Name field first';
+        setTimeout(function(){
+            msg.remove()
+        } , 2000);
+    } else if (email.value === ''){
+        emailmsg.classList.add('error')
+        emailmsg.innerHTML = 'Please fill the Email field first';
+        setTimeout(function(){
+            msg.remove()
+        } , 2000);
+    }
+    else {
         console.log("Success!")
         const users = document.createElement('li');
         users.appendChild(document.createTextNode(`${name.value} : ${email.value}`));
