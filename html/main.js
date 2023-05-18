@@ -254,10 +254,14 @@ const myForm = document.querySelector('#my-form')
 const name = document.querySelector('#name')
 const email = document.querySelector('#email')
 const msg = document.querySelector('.msg')
+const namemsg = document.querySelector('.namemsg')
 const emailmsg = document.querySelector('.emailmsg')
+const emsg = document.querySelector('.emsg')
 const userList = document.querySelector('#users')
 
 myForm.addEventListener('submit', onSubmit);
+email.addEventListener('blur', emailBlurValidation);
+name.addEventListener('blur', nameBlurValidation);
 
 function onSubmit(e) {
     e.preventDefault();
@@ -296,3 +300,28 @@ function onSubmit(e) {
     
 }
 
+function emailBlurValidation(e){
+    console.log('\n Email event :', e)
+    if (email.value === ''){
+        emsg.classList.add('error')
+        emsg.innerHTML = "Email field can't be empty";
+        setTimeout(function(){
+            emsg.remove()
+        } , 2000);
+
+    }
+
+}
+
+function nameBlurValidation(e){
+    console.log('\n Event :', e.target)
+    if (name.value === ''){
+        namemsg.classList.add('error')
+        namemsg.innerHTML = "Name field can't be empty";
+        setTimeout(function(){
+            namemsg.remove()
+        } , 2000);
+
+    }
+
+}
