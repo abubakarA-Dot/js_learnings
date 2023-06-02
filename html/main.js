@@ -287,6 +287,20 @@ function onSubmit(e) {
             emailmsg.remove()
         } , 2000);
     }
+    else if (name.value && email.value === ''){
+        emailmsg.classList.add('error')
+        emailmsg.innerHTML = 'Please fill the Email field first';
+        setTimeout(function(){
+            emailmsg.remove()
+        } , 2000);
+    }
+    else if (name.value === '' && email.value){
+        emailmsg.classList.add('error')
+        emailmsg.innerHTML = 'Please fill the Name field first';
+        setTimeout(function(){
+            emailmsg.remove()
+        } , 2000);
+    }
     else {
         console.log("Success!")
         const users = document.createElement('li');
@@ -301,27 +315,55 @@ function onSubmit(e) {
 }
 
 function emailBlurValidation(e){
-    console.log('\n Email event :', e)
+    console.log('\n Email event :', e.target.value)
     if (email.value === ''){
         emsg.classList.add('error')
+        console.log('\n Email Value After class add :', email.value)
         emsg.innerHTML = "Email field can't be empty";
+        console.log('\n emsg.innerHTML :', emsg.innerHTML)
         setTimeout(function(){
             emsg.remove()
         } , 2000);
 
     }
+    // else if (email.value != ''){
+    //     console.log('\n Email Value  :', email.value)
+    //     emsg.classList.remove('error')
+
+    // }
+    // else if (email.value != ''){
+    //     console.log('\n Email Value  :', email.value)
+    //     emsg.classList.remove('error')
+
+    // }
 
 }
 
 function nameBlurValidation(e){
-    console.log('\n Event :', e.target)
+    console.log('\n Name Event :', e.target)
     if (name.value === ''){
+        console.log('\n Name Value :', name.value)
         namemsg.classList.add('error')
         namemsg.innerHTML = "Name field can't be empty";
         setTimeout(function(){
             namemsg.remove()
         } , 2000);
+        // if (name.value != ''){
+        //     console.log('\n Name Value :', name.value)
+        //     namemsg.classList.remove('error')
+    
+        // }
 
     }
+    // else if (name.value != ''){
+    //     console.log('\n Name Value :', name.value)
+    //     namemsg.classList.remove('error')
+
+    // }
+    // else {
+    //     console.log('\n Name Value :', name.value)
+    //     namemsg.classList.remove('error')
+
+    // }
 
 }
